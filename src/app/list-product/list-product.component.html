@@ -1,0 +1,30 @@
+<div class="container">
+    <button type="button" class="btn btn-sm btn-outline-primary" routerLink="/product-add">
+    Thêm sản phẩm
+  </button>
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Giá</th>
+                <th scope="col">Desc</th>
+                <th scope="col">Author</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products; index as i">
+                <th scope="row">{{i+1}}</th>
+                <td>{{product.titlte}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.desc}}</td>
+                <td>{{product.author}}</td>
+                <td>
+                    <a routerLink="/product/{{product.id}}/update" class="btn btn-success">Update</a>
+                    <button class="btn btn-danger" (click)="handleRemove(product.id)">Remove</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
